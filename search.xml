@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>添加侧边电子钟</title>
+      <link href="/2026/01/09/hexo/"/>
+      <url>/2026/01/09/hexo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="添加侧边电子钟"><a href="#添加侧边电子钟" class="headerlink" title="添加侧边电子钟"></a>添加侧边电子钟</h1><p>效果如下所示<br><img src="/img/time.png"><br>如果有安装店长的插件版侧边栏电子钟（与店长的电子钟冲突），在博客根目录[Blogroot]下打开终端，运行以下指令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 卸载原版电子钟</span><br><span class="line">npm uninstall hexo-butterfly-clock</span><br></pre></td></tr></table></figure><p>安装插件,在博客根目录[Blogroot]下打开终端，运行以下指令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-butterfly-clock-anzhiyu --save</span><br></pre></td></tr></table></figure><p>添加配置信息，以下为写法示例在站点配置文件_config.yml或者主题配置文件_config.butterfly.yml中添加</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># electric_clock</span><br><span class="line"># see https://anzhiy.cn/posts/fc18.html</span><br><span class="line">electric_clock:</span><br><span class="line">  enable: true # 开关</span><br><span class="line">  priority: 5 #过滤器优先权</span><br><span class="line">  enable_page: all # 应用页面</span><br><span class="line">  exclude:</span><br><span class="line">  # - /posts/</span><br><span class="line">  # - /about/</span><br><span class="line">  layout: # 挂载容器类型</span><br><span class="line">    type: class</span><br><span class="line">    name: sticky_layout</span><br><span class="line">    index: 0</span><br><span class="line">  loading: https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif #加载动画自定义</span><br><span class="line">  clock_css: https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css</span><br><span class="line">  clock_js: https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js</span><br><span class="line">  ip_api: https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0</span><br><span class="line">  qweather_key: # 和风天气key</span><br><span class="line">  gaud_map_key: # 高得地图web服务key</span><br><span class="line">  default_rectangle: false # 开启后将一直显示rectangle位置的天气，否则将获取访问者的地理位置与天气</span><br><span class="line">  rectangle: 112.982279,28.19409 # 获取访问者位置失败时会显示该位置的天气，同时该位置为开启default_rectangle后的位置</span><br></pre></td></tr></table></figure><p>  其中<code>qweather_key</code> 和<code>gaud_map_key</code> 最好自己去申请对应的 api key，默认使用我自己的，可能会被限制，不保证可靠性</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -添加侧边电子钟 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>今日诗词</title>
+      <link href="/2026/01/08/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D/"/>
+      <url>/2026/01/08/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="本文将介绍如何增添随机诗词的展示。"><a href="#本文将介绍如何增添随机诗词的展示。" class="headerlink" title="本文将介绍如何增添随机诗词的展示。"></a>本文将介绍如何增添随机诗词的展示。</h1><p>具体效果如下：<br><img src="/img/222.png"></p><h1 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h1><p>主题新建themes&#x2F;anzhiyu&#x2F;layout&#x2F;includes&#x2F;widget&#x2F;card_poem.pug，内容如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#card-poem.card-widget</span><br><span class="line">    #poem_sentence</span><br><span class="line">    #poem_info</span><br><span class="line">        #poem_dynasty</span><br><span class="line">        #poem_author</span><br><span class="line">script(src=&#x27;https://cdn.jsdelivr.net/npm/js-heo@1.0.11/poem/jinrishici.js&#x27;, charset=&#x27;utf-8&#x27;)</span><br><span class="line">script(type=&#x27;text/javascript&#x27;).</span><br><span class="line">  jinrishici.load(function(result) &#123;</span><br><span class="line">  var sentence = document.querySelector(&quot;#poem_sentence&quot;)</span><br><span class="line">  var author = document.querySelector(&quot;#poem_author&quot;)</span><br><span class="line">  var dynasty = document.querySelector(&quot;#poem_dynasty&quot;)</span><br><span class="line"></span><br><span class="line">  var sentenceText = result.data.content</span><br><span class="line">  sentenceText = sentenceText.substr(0, sentenceText.length - 1);</span><br><span class="line">  sentence.innerHTML = sentenceText</span><br><span class="line">  dynasty.innerHTML = result.data.origin.dynasty</span><br><span class="line">  author.innerHTML = result.data.origin.author + &#x27;《&#x27; + result.data.origin.title + &#x27;》&#x27;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure><h1 id="引入组件"><a href="#引入组件" class="headerlink" title="引入组件"></a>引入组件</h1><p>在<code>themes/anzhiyu/layout/includes/widget/index.pug</code>中你需要的位置添加以下内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!=partial(&#x27;includes/widget/card_poem&#x27;, &#123;&#125;, &#123;cache: true&#125;)</span><br></pre></td></tr></table></figure><p><img src="/img/111.png"></p><h1 id="引入CSS"><a href="#引入CSS" class="headerlink" title="引入CSS"></a>引入CSS</h1><p> 在主题配置文件中添加<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> inject:</span><br><span class="line">head:</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure><br>heoMainColor.css</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css&quot;&gt;</span><br></pre></td></tr></table></figure><p>引用主css</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/npm/js-heo@1.0.11/poem/poem.css&quot;&gt;</span><br></pre></td></tr></table></figure><p>这里调用的是今日诗词API，是一个可以返回一句古诗词名句的接口。</p><p>它可以通过图片和 JSON 格式调用。今日诗词 API 根据不同地点、时间、节日、季节、天气、景观、城市进行智能推荐。</p><p>访问链接：<a href="https://www.jinrishici.com/">https://www.jinrishici.com</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -今日诗词 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>字数统计</title>
+      <link href="/2026/01/08/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/"/>
+      <url>/2026/01/08/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h1><p> 要为 AnZhiYu 配上字数统计特性, 你需要如下几个步骤:</p><p> 打开 hexo 工作目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save or yarn add hexo-wordcount</span><br></pre></td></tr></table></figure><p>修改 主题配置文件:</p><pre><code>wordcount:  enable: true  post_wordcount: true  min2read: true  total_wordcount: true</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -字数统计 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搜索</title>
+      <link href="/2026/01/08/%E6%90%9C%E7%B4%A2/"/>
+      <url>/2026/01/08/%E6%90%9C%E7%B4%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h1><p>  安装插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure><p>可以在根 _config.yml 中配置这个插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> ##Local Search本地搜索</span><br><span class="line">search:</span><br><span class="line">path: search.xml</span><br><span class="line">field: post</span><br><span class="line">format: html</span><br><span class="line">limit: 10000</span><br></pre></td></tr></table></figure><p>修改 主题配置文件</p><pre><code>local_search:  enable: false  preload: false  CDN:</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -搜索 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>evol主题配置</title>
+      <link href="/2026/01/07/evol%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/"/>
+      <url>/2026/01/07/evol%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="evol主题安装"><a href="#evol主题安装" class="headerlink" title="evol主题安装"></a>evol主题安装</h1><p>(npm安装):</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-anzhiyu</span><br></pre></td></tr></table></figure><p>此方法只支持 Hexo 5.0.0 以上版本 通过 npm 安装并不会在 themes 里生成主题文件夹，而是在 node_modules 里生成</p><h1 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h1><p>打开 Hexo 根目录下的 <code>config.yml</code>, 找到以下配置项，把主题改为<code>anzhiyu</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: anzhiyu</span><br></pre></td></tr></table></figure><h1 id="安装-pug-和-stylus-渲染插件"><a href="#安装-pug-和-stylus-渲染插件" class="headerlink" title="安装 pug 和 stylus 渲染插件"></a>安装 pug 和 stylus 渲染插件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure><p>无法安装可以使用cnpm进行安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save --registry=http://registry.npmmirror.com</span><br></pre></td></tr></table></figure><p>本地启动 hexo</p><pre><code>hexo clhexo ghexo s</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -evol主题配置 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo主题配置</title>
+      <link href="/2026/01/07/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/"/>
+      <url>/2026/01/07/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="hexo主题安装"><a href="#hexo主题安装" class="headerlink" title="hexo主题安装"></a>hexo主题安装</h1><p>(npm安装):</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-anzhiyu</span><br></pre></td></tr></table></figure><p>此方法只支持 Hexo 5.0.0 以上版本 通过 npm 安装并不会在 themes 里生成主题文件夹，而是在 node_modules 里生成</p><h1 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h1><p>打开 Hexo 根目录下的 <code>config.yml</code>, 找到以下配置项，把主题改为<code>anzhiyu</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: anzhiyu</span><br></pre></td></tr></table></figure><h1 id="安装-pug-和-stylus-渲染插件"><a href="#安装-pug-和-stylus-渲染插件" class="headerlink" title="安装 pug 和 stylus 渲染插件"></a>安装 pug 和 stylus 渲染插件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure><p>无法安装可以使用cnpm进行安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save --registry=http://registry.npmmirror.com</span><br></pre></td></tr></table></figure><p>本地启动 hexo</p><pre><code>hexo clhexo ghexo s</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -hexo主题配置 -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>永久链接</title>
+      <link href="/2026/01/07/%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5/"/>
+      <url>/2026/01/07/%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="文章生成永久链接"><a href="#文章生成永久链接" class="headerlink" title="文章生成永久链接"></a>文章生成永久链接</h1><p>使用 hexo-abbrlink 的 Hexo 插件来实现文章生成永久链接，安装命令如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><p>在 Hexo <code>根目录下的 _config.yml</code> 文件中，新增以下的配置项：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abbrlink: </span><br><span class="line">    alg: crc16   #算法：</span><br><span class="line">    rep: hex     #输出进制：十进制和十六进制，默认为10进制。丨dec为十进制，hex为十六进制</span><br></pre></td></tr></table></figure><p>将<code> _config.yml</code> 文件中的 <code>permalink</code> 的值修改为如下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink.html  # 此处可以自己设置，也可以直接使用 :/abbrlink</span><br></pre></td></tr></table></figure><p>执行 <code>hexo clean &amp;&amp; hexo g</code> 重新生成博客文件，就可以生成永久链接。生成完后，原 md 文件的 Front-matter 内会增加 abbrlink 字段，值为生成的 ID 。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -hexo -永久链接 -git -anzhiyu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
