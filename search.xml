@@ -146,10 +146,20 @@
         <content type="html"><![CDATA[<h1 id="hexo主题安装"><a href="#hexo主题安装" class="headerlink" title="hexo主题安装"></a>hexo主题安装</h1><p>(npm安装):</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-anzhiyu</span><br></pre></td></tr></table></figure><p>此方法只支持 Hexo 5.0.0 以上版本 通过 npm 安装并不会在 themes 里生成主题文件夹，而是在 node_modules 里生成</p><h1 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h1><p>打开 Hexo 根目录下的 <code>config.yml</code>, 找到以下配置项，把主题改为<code>anzhiyu</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: anzhiyu</span><br></pre></td></tr></table></figure><h1 id="安装-pug-和-stylus-渲染插件"><a href="#安装-pug-和-stylus-渲染插件" class="headerlink" title="安装 pug 和 stylus 渲染插件"></a>安装 pug 和 stylus 渲染插件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure><p>无法安装可以使用cnpm进行安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save --registry=http://registry.npmmirror.com</span><br></pre></td></tr></table></figure><p>本地启动 hexo</p><pre><code>hexo clhexo ghexo s</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> hexo主题安装 </category>
+          
+      </categories>
+      
       
         <tags>
             
-            <tag> -hexo -hexo主题配置 -anzhiyu </tag>
+            <tag> hexo </tag>
+            
+            <tag> hexo主题配置 </tag>
+            
+            <tag> anzhiyu&#39; </tag>
             
         </tags>
       
